@@ -1,3 +1,6 @@
+from pydantic import BaseModel
+
+
 BOOKS_DATABASE = [
     {
         "id": 1,
@@ -13,6 +16,16 @@ BOOKS_DATABASE = [
 
 
 # TODO написать класс Book
+class Book(BaseModel):
+    id_: int
+    name: str
+    pages: int
+
+    def __str__(self) -> str:
+            return f'Книга "{self.name}"'
+
+    def __repr__(self) -> str:
+        return f'Book(id_={self.id_}, name={self.name!r}, pages={self.pages})'
 
 
 if __name__ == '__main__':
