@@ -22,7 +22,7 @@ class Book(BaseModel):
     pages: int
 
     def __str__(self) -> str:
-            return f'Книга "{self.name}"'
+        return f'Книга "{self.name}"'
 
     def __repr__(self) -> str:
         return f'Book(id_={self.id_}, name={self.name!r}, pages={self.pages})'
