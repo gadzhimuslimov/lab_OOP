@@ -1,3 +1,6 @@
+from pydantic import BaseModel
+from typing import List
+
 BOOKS_DATABASE = [
     {
         "id": 1,
@@ -13,9 +16,25 @@ BOOKS_DATABASE = [
 
 
 # TODO написать класс Book
+class Book(BaseModel):
+    id_: int
+    name: str
+    pages: int
 
 
 # TODO написать класс Library
+class Library(BaseModel):
+    books: List[Book] = []
+
+    def get_next_book_id(self) -> int:
+        return len(self.books) + 1
+
+    def get_index_by_book_id(self, find_id: int) -> int:
+        for i, book in enumerate(self.books):
+            if find_id == book.id_:
+                return i
+
+        raise ValueError("Книги с запрашиваемым id не существует")
 
 
 if __name__ == '__main__':
