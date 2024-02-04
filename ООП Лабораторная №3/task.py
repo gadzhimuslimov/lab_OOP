@@ -11,11 +11,11 @@ class Book:
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r})"
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self._name
 
     @property
-    def autor(self):
+    def autor(self) -> str:
         return self._author
 
 class PaperBook(Book):
