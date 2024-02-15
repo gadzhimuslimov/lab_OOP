@@ -1,5 +1,5 @@
 class Parallelogram:
-    """Описание класса "Параллелограм" """
+    """Описание класса "Параллелограмм" """
 
     def __init__(self, length: (int, float), width: (int, float)):
         """
@@ -14,11 +14,11 @@ class Parallelogram:
         if not isinstance(length, (int, float)):
             raise TypeError("Аргумент должен быть числовым типом данных")
         if length <= 0:
-            raise ValueError("Некорректное значение длины")
+            raise ValueError("Некорректное значение аргумента")
         if not isinstance(width, (int, float)):
             raise TypeError("Аргумент должен быть числовым типом данных")
         if width <= 0:
-            raise ValueError("Некорректное значение ширины")
+            raise ValueError("Некорректное значение аргумента")
 
         self._length = length
         self._width = width
