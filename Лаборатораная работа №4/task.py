@@ -4,10 +4,11 @@ class Parallelogram:
     def __init__(self, length: (int, float), width: (int, float)):
         """
             Создание и подготовка к работе объекта
-            :param length: Высота стола
-            :param width: Площадь поверхности стола
+            Длина и ширина должны пройти проверки на корректность и поэтому являются защищенными атрибутами.
+            :param length: Длина параллелограмма
+            :param width: Ширина параллелограмма
             :raised TypeError: Когда аргументы - нечисловые типы данных
-            :raised ValueError: Когда значение соответствкющих аргументов меньше или равно нулю
+            :raised ValueError: Когда значение соответствующих аргументов меньше или равно нулю
         """
 
         if not isinstance(length, (int, float)):
@@ -19,9 +20,6 @@ class Parallelogram:
         if width <= 0:
             raise ValueError("Некорректное значение ширины")
 
-        """
-            Длина и высота должны пройти проверки на корректность и поэтому являются защищенными атрибутами.
-        """
         self._length = length
         self._width = width
 
@@ -46,22 +44,26 @@ class Parallelogram:
 
 
 class Parallelepiped(Parallelogram):
+    """
+    Описание класса "Параллелепипед"
+    Класс "Параллелепипед" является дочерним от класса "Параллелограмм"
+    """
+
     def __init__(self, length: (int, float), width: (int, float), height: (int, float)):
         """
-        Класс "Параллелепипед" является дочерним клаассом от "Параллелограмм"
         Создание и подготовка к работе объекта
-        :param length: Высота стола
-        :param width: Площадь поверхности стола
-        :param height: Высота параллелипипеда
+        :param length: Длина параллелипипеда
+        :param width: Ширина параллелипипеда
+        :param height: Высота параллелипипеда также является защищенным атрибутом, в согласовании с базовым классом
         :raised TypeError: Когда аргументы - нечисловые типы данных
-        :raised ValueError: Когда значение соответствкющих аргументов меньше или равно нулю
+        :raised ValueError: Когда значение соответствующих аргументов меньше или равно нулю
         """
         super().__init__(length, width)
         if not isinstance(height, (int, float)):
             raise TypeError("Аргумент должен быть числовым типом данных")
         if height <= 0:
-            raise ValueError("Некорректное значение объема")
-        """Высота также является защищенным атрибутом, в соглосовании с базовым классом"""
+            raise ValueError("Некорректное значение аргумента")
+
         self._height = height
 
     def __str__(self) -> str:
@@ -92,7 +94,7 @@ class Parallelepiped(Parallelogram):
     def volume(self) -> (int, float):
         """
             Свойство возвращает объем объекта
-            Внимание: При вычислении вызывается свойство square из базового класса, в качестве площади основания!
+            Внимание: В данном свойстве square - площадь основания, вызываемый из базового класса!
         """
         return super().square * self._height
 
@@ -109,4 +111,5 @@ if __name__ == "__main__":
     print(quadro.square)
     print(stereo.square)
     print(stereo.volume)
-
+    print(help(quadro))
+    print(help(stereo))
