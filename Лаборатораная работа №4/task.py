@@ -62,7 +62,7 @@ class Parallelepiped(Parallelogram):
         if not isinstance(height, (int, float)):
             raise TypeError("Аргумент должен быть числовым типом данных")
         if height <= 0:
-            raise ValueError("Некорректное значение аргумента")
+            raise ValueError("Некорректное значение высоты")
 
         self._height = height
 
