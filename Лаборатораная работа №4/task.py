@@ -14,11 +14,11 @@ class Parallelogram:
         if not isinstance(length, (int, float)):
             raise TypeError("Аргумент должен быть числовым типом данных")
         if length <= 0:
-            raise ValueError("Некорректное значение аргумента")
+            raise ValueError("Некорректное значение длины")
         if not isinstance(width, (int, float)):
             raise TypeError("Аргумент должен быть числовым типом данных")
         if width <= 0:
-            raise ValueError("Некорректное значение аргумента")
+            raise ValueError("Некорректное значение ширины")
 
         self._length = length
         self._width = width
@@ -28,7 +28,7 @@ class Parallelogram:
             Реализует представление объекта в удобном виде для пользователя
        """
 
-        return f'Прямоугольник(длина={self._length}, ширина={self._width})'
+        return f'Параллелограмм(длина={self._length}, ширина={self._width})'
 
     def __repr__(self) -> str:
         """
@@ -71,7 +71,7 @@ class Parallelepiped(Parallelogram):
             Реализует представление объекта в удобном виде для пользователя
             Метод перезагружен т.к. добавлен параметр высоты
         """
-        return f'Прямоугольник(длина={self._length}, ширина={self._width}, высота={self._height})'
+        return f'Параллелепипед(длина={self._length}, ширина={self._width}, высота={self._height})'
 
     def __repr__(self) -> str:
         """
@@ -101,7 +101,7 @@ class Parallelepiped(Parallelogram):
 
 if __name__ == "__main__":
     # Write your solution here
-    quadro = Parallelogram(3, 3)
+    quadro = Parallelogram(3, 6)
     stereo = Parallelepiped(4, 5, 3)
 
     print(quadro)
